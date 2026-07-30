@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Tobet D10 — um rolador de dados temático para mesas de RPG."
+  />
+  <title>Tobet D10</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 120 60" role="img">
+          <path d="M60 28C47 10 24 7 8 15c10 4 15 11 17 20 10-8 20-8 35 5 15-13 25-13 35-5 2-9 7-16 17-20-16-8-39-5-52 13Z"/>
+          <path d="M60 28 50 15l10 4 10-4-10 13Z"/>
+        </svg>
+      </div>
+
+      <div>
+        <p class="eyebrow">Casa de jogos de Tobias</p>
+        <h1>Tobet</h1>
+      </div>
+
+      <span class="status">
+        <span class="status-dot"></span>
+        Mesa aberta
+      </span>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">D10 • RPG • Sorte calculada</p>
+        <h2 id="hero-title">Você não rola no escuro.</h2>
+        <p class="slogan">Rola com <strong>sangue frio.</strong></p>
+        <p class="description">
+          Escolha a quantidade de dados, aplique um modificador e deixe a Tobet
+          decidir o próximo movimento da sua história.
+        </p>
+      </div>
+
+      <div class="sigil" aria-hidden="true">
+        <span>T</span>
+      </div>
+    </section>
+
+    <section class="roller-card" aria-labelledby="roller-title">
+      <div class="roller-header">
+        <div>
+          <p class="eyebrow">Mesa principal</p>
+          <h2 id="roller-title">Rolador D10</h2>
+        </div>
+
+        <button id="clearHistory" class="text-button" type="button">
+          Limpar histórico
+        </button>
+      </div>
+
+      <div class="controls">
+        <label class="field">
+          <span>Quantidade</span>
+          <select id="diceCount">
+            <option value="1">1d10</option>
+            <option value="2">2d10</option>
+            <option value="3">3d10</option>
+            <option value="4">4d10</option>
+            <option value="5">5d10</option>
+            <option value="6">6d10</option>
+            <option value="7">7d10</option>
+            <option value="8">8d10</option>
+            <option value="9">9d10</option>
+            <option value="10">10d10</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Modificador</span>
+          <input id="modifier" type="number" value="0" min="-99" max="99" />
+        </label>
+
+        <label class="field">
+          <span>Regra do zero</span>
+          <select id="zeroRule">
+            <option value="10">0 vale 10</option>
+            <option value="0">0 vale 0</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="stage">
+        <div class="bat bat--left" aria-hidden="true">◆</div>
+        <div class="bat bat--right" aria-hidden="true">◆</div>
+
+        <div id="diceArea" class="dice-area" aria-live="polite">
+          <div class="die" data-value="10">
+            <span class="die-value">10</span>
+            <small>D10</small>
+          </div>
+        </div>
+
+        <div class="result-panel">
+          <span>Total</span>
+          <strong id="totalResult">10</strong>
+          <small id="resultMessage">A casa observa em silêncio.</small>
+        </div>
+      </div>
+
+      <button id="rollButton" class="roll-button" type="button">
+        <span class="roll-icon" aria-hidden="true">✦</span>
+        Rolar os dados
+        <kbd>Espaço</kbd>
+      </button>
+    </section>
+
+    <aside class="history-card" aria-labelledby="history-title">
+      <div class="history-heading">
+        <div>
+          <p class="eyebrow">Registros da noite</p>
+          <h2 id="history-title">Histórico</h2>
+        </div>
+        <span id="rollCounter" class="counter">0 rolagens</span>
+      </div>
+
+      <ol id="historyList" class="history-list">
+        <li class="history-empty">
+          Nenhuma rolagem registrada. A sorte ainda está intacta.
+        </li>
+      </ol>
+    </aside>
+
+    <footer>
+      <span>Tobet © Mesa de RPG</span>
+      <span>Sem dinheiro real. Apenas destino.</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
